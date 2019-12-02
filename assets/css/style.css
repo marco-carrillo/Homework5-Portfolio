@@ -1,0 +1,70 @@
+/****************************************************************************************/
+/* This file contains all of the css styling applied to different elements and classes  */
+/****************************************************************************************/
+
+
+/************************************************/
+/* Contains the background for the overall body */
+/************************************************/
+
+body{
+    background-image:url("../images/little_pluses.png")
+}
+
+/*************************************************/
+/* Formats the picture that goes into the button */
+/*************************************************/
+
+.btn-pic {
+    width: 30px;
+    background-color:red;
+}
+
+/***********************************************************/
+/* Formats elements whenever they are disabled (past hour  */
+/***********************************************************/
+
+.hr-past {
+        background-color:gray;
+}
+
+.activity-past {
+    background-color:gray;
+}
+
+.btn-past {
+    background-color:gray;}
+}
+
+/*************************************************************/
+/* Formats elements whenever they are current (current hour  */
+/*************************************************************/
+
+.hr-current {
+    background-color:white;
+}
+
+.activity-past {
+background-color:red;
+}
+
+.btn-past {
+background-color:teal;}
+}
+
+/*************************************************************/
+/* Formats elements whenever they are future (future hour    */
+/*************************************************************/
+
+.hr-current {
+    background-color:white;
+}
+
+.activity-past {
+background-color:white;
+}
+
+.btn-past {
+background-color:teal;}
+}
+
