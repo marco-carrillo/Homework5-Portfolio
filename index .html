@@ -11,7 +11,6 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <link rel="stylesheet" href="assets/css/style.css">
-     <!-- <script src="assets/js/luxon.js"></script>   Luxon library -->
      <script src="assets/js/moment.js"></script>
 
 </head>
@@ -28,156 +27,159 @@
     <div class="container">  <!--main wrapper for the container-->
 
           <div class="row bg-white border-bottom border-dark my-3">  <!-- top row contains header information-->
-               <div class="col"></div> <!-- for formatting purposes only-->
-               <div class="col-sm-10 text-center">
+               <div class="col-2">  <!-- left-hand side, shows the time-->
+                    <h6 id="TimeShown">Time --  </h6>
+
+               </div> 
+               <div class="col-sm-8 text-center">
                     <h1>Work day Scheduler</h1>
                     <h6>A simple calendar app for scheduling your work day</h6>
                     <h6 id="DisplayDate">Thursday, December 1st</h6>
                </div>
-               <div class="col"></div> <!-- for formatting purposes only-->
+               <div class="col-2"></div> <!-- for formatting purposes only-->
 
           </div> <!-- row 1 ends here-->
 
 
-          <div class="row border">  <!--9:00 AM-->
+          <div id="0" class="row border">  <!--9:00 AM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>9AM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 9AM row ends here-->
 
-          <div class="row">  <!--10:00 AM-->
+          <div id="1" class="row">  <!--10:00 AM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>10AM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 10AM row ends here-->
 
-          <div class="row">  <!--11:00 AM-->
+          <div id="2" class="row">  <!--11:00 AM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>11AM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 11AM row ends here-->
 
-          <div class="row">  <!--12:00 PM-->
+          <div id="3" class="row">  <!--12:00 PM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>12PM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 12PM row ends here-->
 
-          <div class="row">  <!--1:00 PM-->
+          <div id="4" class="row">  <!--1:00 PM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>1PM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 1PM row ends here-->
 
-          <div class="row">  <!--2:00 PM-->
+          <div id="5" class="row">  <!--2:00 PM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>2PM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 2PM row ends here-->
 
-          <div class="row">  <!--3:00 PM-->
+          <div id="6" class="row">  <!--3:00 PM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>3PM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 3PM row ends here-->
 
-          <div class="row">  <!--4:00 PM-->
+          <div id="7" class="row">  <!--4:00 PM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>4PM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 4PM row ends here-->
 
-          <div class="row">  <!--5:00 PM-->
+          <div id="8" class="row">  <!--5:00 PM-->
                <div class="col"></div> <!--for formating purposes only-->
                <div class="col-sm-2">
                     <h6>5PM</h6>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-7">
                     <h6>Activity description goes here</h6>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-1">
                     <button type="button" class="btn btn-info">
-                         <img src="assets/images/lock.png" class="btn-pic">
+                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
@@ -205,8 +207,6 @@
     <script>
 
     </script>
-
-
-
+     
 </body>
 </html>
