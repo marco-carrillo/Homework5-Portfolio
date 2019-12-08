@@ -3,22 +3,30 @@
 /****************************************************************************************/
 
 
-/************************************************/
-/* Contains the background for the overall body */
-/************************************************/
+/**************************************************************/
+/* Contains the background for classes that won't be changing */
+/*************************************************************/
 
 body{
-    background-image:url("../images/little_pluses.png")
+    background-image:url("../images/little_pluses.png");
 }
 
-/*************************************************/
-/* Formats the picture that goes into the button */
-/*************************************************/
-
-.btn-pic {
-    width: 30px;
-    background-color:red;
+.activity-cont {
+    padding-right:0px;
+    padding-left:0px;
 }
+
+.hour-cont {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background-color:white;
+}
+
+.row-cont {
+    height:40px;
+}
+
 
 /***********************************************************/
 /* Formats elements whenever they are disabled (past hour  */
@@ -40,6 +48,26 @@ body{
 /*************************************************************/
 /* Formats elements whenever they are future (future hour    */
 /*************************************************************/
+
+.activity-cont-future{
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+    padding-right:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    border: 1px solid black;
+}
+
+.btn-future{
+    width:100%;
+    padding-bottom:0px;
+    height:100%;
+    border-top-right-radius:15px;
+    border-bottom-right-radius: 15px;
+
+}
+
 
 .hr-future {
     background-color:white;

@@ -11,6 +11,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <link rel="stylesheet" href="assets/css/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
      <script src="assets/js/moment.js"></script>
 
 </head>
@@ -23,167 +24,239 @@
     <!--  2-10 row:  One row for each hour of the day                -->
     <!--*************************************************************-->
 
-
     <div class="container">  <!--main wrapper for the container-->
 
-          <div class="row bg-white border-bottom border-dark my-3">  <!-- top row contains header information-->
+          <div class="row bg-white border-bottom border-dark my-2">  <!-- top row contains header information-->
                <div class="col-2">  <!-- left-hand side, shows the time-->
                     <h6 id="TimeShown">Time --  </h6>
-
                </div> 
                <div class="col-sm-8 text-center">
-                    <h1>Work day Scheduler</h1>
+                    <h3>Work day Scheduler</h3>
                     <h6>A simple calendar app for scheduling your work day</h6>
                     <h6 id="DisplayDate">Thursday, December 1st</h6>
                </div>
                <div class="col-2"></div> <!-- for formatting purposes only-->
-
           </div> <!-- row 1 ends here-->
 
 
-          <div id="0" class="row border">  <!--9:00 AM-->
+          <!--********************************************************************-->
+          <!-- 9:00 time slot formatting will start here                          -->
+          <!--********************************************************************-->
+
+          <div id="0" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>9AM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container0" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea0" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button0">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button0">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 9AM row ends here-->
 
-          <div id="1" class="row">  <!--10:00 AM-->
+          <!--********************************************************************-->
+          <!-- 10:00 time slot formatting will start here                         -->
+          <!--********************************************************************-->
+
+          <div id="1" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>10AM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container1" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea1" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button1">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button1">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 10AM row ends here-->
 
-          <div id="2" class="row">  <!--11:00 AM-->
+          <!--********************************************************************-->
+          <!-- 11:00 time slot formatting will start here                         -->
+          <!--********************************************************************-->
+
+          <div id="2" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>11AM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container2" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea2" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button2">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button2">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 11AM row ends here-->
 
-          <div id="3" class="row">  <!--12:00 PM-->
+          <!--********************************************************************-->
+          <!-- 12:00 time slot formatting will start here                         -->
+          <!--********************************************************************-->
+
+          <div id="3" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>12PM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container3" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea3" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button3">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button3">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 12PM row ends here-->
 
-          <div id="4" class="row">  <!--1:00 PM-->
+          <!--******************************************************************-->
+          <!-- 1PM time slot formatting will start here                         -->
+          <!--******************************************************************-->
+
+          <div id="4" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>1PM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container4" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea4" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button4">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button4">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 1PM row ends here-->
 
-          <div id="5" class="row">  <!--2:00 PM-->
+          <!--******************************************************************-->
+          <!-- 2PM time slot formatting will start here                         -->
+          <!--******************************************************************-->
+
+          <div id="5" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>2PM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container5" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea5" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button5">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button5">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 2PM row ends here-->
 
-          <div id="6" class="row">  <!--3:00 PM-->
+
+          <!--******************************************************************-->
+          <!-- 3PM time slot formatting will start here                         -->
+          <!--******************************************************************-->
+
+          <div id="6" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>3PM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container6" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea6" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button6">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button6">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 3PM row ends here-->
 
-          <div id="7" class="row">  <!--4:00 PM-->
+          <!--******************************************************************-->
+          <!-- 4PM time slot formatting will start here                         -->
+          <!--******************************************************************-->
+
+          <div id="7" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>4PM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container7" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea7" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button7">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0 mx-0 my-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button7">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 4PM row ends here-->
 
-          <div id="8" class="row">  <!--5:00 PM-->
+          <!--******************************************************************-->
+          <!-- 5PM time slot formatting will start here                         -->
+          <!--******************************************************************-->
+
+          <div id="8" class="row row-cont">
                <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2">
+               <div class="col-sm-2 text-center hour-cont">
                     <h6>5PM</h6>
                </div>
-               <div class="col-sm-7">
-                    <h6>Activity description goes here</h6>
+               <div id="container8" class="col-sm-7 activity-cont-future">
+                    <form>
+                         <div class="form-group my-0">
+                              <textarea class="form-control" id="Textarea8" rows="1"></textarea>
+                         </div>
+                    </form>                    
                </div>
-               <div class="col-sm-1">
-                    <button type="button" class="btn btn-info" id="button8">
-                         <img src="assets/images/lock.png" class="btn-pic" alt="lock">
+               <div class="col-sm-1 px-0 py-0 mx-0 my-0">
+                    <button type="button" class="btn btn-info btn-block btn-future" id="button8">
+                         <i class="far fa-save"></i>
                     </button>
                </div>
                <div class="col"></div> <!--for formating purposes only-->
-          </div> <!-- 5PM row ends here-->
+          </div> <!-- 4PM row ends here-->
+
+
 
      </div>  <!-- main wrapper-->
 
@@ -202,7 +275,7 @@
     <!-- <link rel="stylesheet" href="assets/plugins/jquery-confirm.min.css">
     <script src="assets/plugins/jquery-confirm.min.js"></script> -->
 
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
 
     <script>
 
