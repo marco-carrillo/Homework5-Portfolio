@@ -7,49 +7,14 @@
 /* Contains the background for classes that won't be changing */
 /*************************************************************/
 
-body{
+/* body{
     background-image:url("../images/little_pluses.png");
-}
-
-.activity-cont {
-    padding-right:0px;
-    padding-left:0px;
-}
-
-.hour-cont {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    background-color:white;
-}
-
-.row-cont {
-    height:40px;
-}
+} */
 
 
-/***********************************************************/
-/* Formats elements whenever they are disabled (past hour  */
-/***********************************************************/
+body{background-color:turquoise;}
 
-.hr-past {
-        background-color:gray;
-}
-
-/*************************************************************/
-/* Formats elements whenever they are current (current hour  */
-/*************************************************************/
-
-.hr-current {
-    background-color:red;
-}
-
-
-/*************************************************************/
-/* Formats elements whenever they are future (future hour    */
-/*************************************************************/
-
-.activity-cont-future{
+.activity-cont{
     padding-top:0px;
     padding-bottom:0px;
     padding-left:0px;
@@ -59,14 +24,58 @@ body{
     border: 1px solid black;
 }
 
-.btn-future{
+.hour-cont {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background-color:white;
+}
+
+.btn-fmt {
     width:100%;
     padding-bottom:0px;
     height:100%;
     border-top-right-radius:15px;
     border-bottom-right-radius: 15px;
-
+    border-top-color:white;
+    border-right-color:white;
+    border-bottom-color:white;  
 }
+
+.row-cont {
+    height:40px;
+}
+
+/***********************************************************/
+/* Formats elements whenever they are disabled (past hour  */
+/***********************************************************/
+
+.text-past{
+    background-color:gray;
+}
+
+.frm-past {
+    background-color:red;
+}
+
+/*************************************************************/
+/* Formats elements whenever they are current (current hour  */
+/*************************************************************/
+
+.text-current {
+    background-color:red;
+}
+
+.text-current:focus {
+    background-color:red;
+}
+
+
+
+/*************************************************************/
+/* Formats elements whenever they are future (future hour    */
+/*************************************************************/
+
 
 
 .hr-future {

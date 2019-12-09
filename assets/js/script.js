@@ -65,33 +65,41 @@ document.getElementById("TimeShown").textContent="Time -- "+moment().format('h:m
 
 //  get current time in military time (0 to 23 hours)
 
-var current_hour=get_military_hour()-2;
+var current_hour=get_military_hour()-8;
 
 //**********************************************************************/
 //  activity on the table is stored in a matrix of strings.
-//  Index is current hour-9.  Thus, 8 hours is stored in element 0
+//  Index is current hour-9.  Thus, 9AM is stored in element 9-9=0
 //  Content of the string is the activity description
 //**********************************************************************/
 
-// Refreshes the styles of the calendar
+// Refreshes the 8 timeslots for the calendar
 
 for(var i=0;i<9;i++){
 
-    if(current_hour-i-9>0) {   // That means the current slot (index+8) is in the past, disable it
-        $("#"+i.toString()).attr("class","row border hr-past")  // attributes of the entire row
-        $("#button"+i.toString()).off("click")                  // eliminating any click handlers from button
-        $("#button"+i.toString()).prop("disabled",true)         // eliminating any click handlers from button
+    var text_name="#textarea"+i.toString();    // Id of the text area
+    var button_name="#button"+i.toString();    // ID of the button
+
+    if(current_hour-i-9>0) {   // That means the current slot is in the past, disable text and button
+        $(text_name).prop("disabled",true);                     // disables text input
+        $(text_name).attr("class","form-control text-past");    // formatting text in the past
+        $(button_name).prop("disabled",true)                    // disables button
+        $(button_name).attr("class","btn btn-block btn-secondary btn-fmt")   // formatting button
     } else if(current_hour-i-9===0){  // This means the current slot is the current hour
-        $("#"+i.toString()).attr("class","row border hr-current")
-        $("#button"+i.toString()).off("click")                  // eliminating any click handlers from button
-        $("#button"+i.toString()).on("click",edit_activity)     // setting click handling variable
-        $("#button"+i.toString()).prop("disabled",false)        // eliminating any click handlers from button
+        $(text_name).prop("disabled",false);                    // enables text input
+        $(text_name).attr("class","form-control text-current");  // formatting text in the present
+        $(button_name).prop("disabled",false)                    // enables button
+        $(button_name).attr("class","btn btn-block btn-danger btn-fmt")  // formatting button
     } else {  // This means the current slot (index+8) happens in the future.
-        $("#"+i.toString()).attr("class","row border hr-future")
-        $("#button"+i.toString()).off("click")                  // eliminating any click handlers from button
-        $("#button"+i.toString()).on("click",edit_activity)     // setting click handling variable
-        $("#button"+i.toString()).prop("disabled",false)        // eliminating any click handlers from button
+        $(text_name).prop("disabled",false);                    // enables text input
+        $(text_name).attr("class","form-control text-present");  // formatting text in the present
+        $(button_name).prop("disabled",false)                    // enables button
+        $(button_name).attr("class","btn btn-block btn-info btn-fmt")  // formatting button
     }
+
+    $(".btn").off("click")                             // eliminating any click handlers from all buttons
+     // Adding click events for present and future buttons
+
 }
 
 } //  Ends function handle_minute()
@@ -109,10 +117,10 @@ for(var i=0;i<9;i++){
 
 function set_initial_interval(){
     var seconds=parseInt(moment().format('ss'));
-    if(seconds===0){   // Exactly when the clock changes from one minute to the next
-        clearInterval(IntervalHandler);  // Clears the 1 second interval
-        handle_minute();                 // refreshes time
-        Interval_Handler=setInterval(handle_minute,60000);   //  Sets the interval to each minute
+    if(seconds===0){                                         // Exactly when the clock changes from one minute to the next
+        clearInterval(IntervalHandler);                      // Clears the 1 second interval
+        handle_minute();                                     // refreshes time
+        Interval_Handler=setInterval(handle_minute,60000);   // Sets the interval to each minute and the function to handle it
     }
 }    //  end of function set_initial_interval 
 
@@ -121,5 +129,5 @@ function set_initial_interval(){
 //  properly function.  
 //****************************************************************************************** */
 
-handle_minute();                            // Initial writing, gets the time and posts it
-var IntervalHandler=setInterval(set_initial_interval,1000);// write local time to the webpage
+handle_minute();                                            // Initial page loading
+var IntervalHandler=setInterval(set_initial_interval,1000); // Initial time interval, every second, until minute changes
