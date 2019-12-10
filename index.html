@@ -26,16 +26,17 @@
     <div class="container">  <!--main wrapper for the container-->
 
           <div class="row bg-white border-bottom border-dark my-2">  <!-- top row contains header information-->
-               <div class="col-2">  <!-- left-hand side, shows the time-->
+               
+               <div class="col-sm-12 col-md-2 text-center">  <!-- left-hand side, shows the time-->
                     <h6 id="TimeShown">Time --  </h6>
                </div> 
-               <div class="col-sm-8 text-center">
-                    <h3>Work day Scheduler</h3>
+               <div class="col-sm-12 col-md-8 text-center">
+                    <h4>Work day Scheduler</h4>
                     <h6>A simple calendar app for scheduling your work week</h6>
                     <h6 id="DisplayDate">Date here</h6>
                </div>
-               <div class="col-2">   <!--option to disable pop-ups/select day of the week-->
-                    <div class="form-check">
+               <div class="col-sm-12 col-md-2">   <!--option to disable pop-ups/select day of the week-->
+                    <div class="form-check text-center">
                          <input class="form-check-input" type="checkbox" value="" id="confirm_msgs" checked>
                          <label class="form-check-label" for="defaultCheck1">
                             Allow messages     
@@ -51,7 +52,7 @@
           <!--********************************************************************-->
 
           <div class="row d-flex justify-content-center mb-2">
-               <div class="btn-group btn-group-toggle" data-toggle="buttons">
+               <div class="btn-group btn-group-toggle flex-wrap" data-toggle="buttons">
                     <label class="btn btn-info dow" id="day0">
                       <input type="radio" name="options" id="daylabel0">Sunday
                     </label>
@@ -81,23 +82,21 @@
           <!--********************************************************************-->
 
           <div id="0" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>9AM</h6>
                </div>
-               <div id="container0" class="col-sm-7 activity-cont">
+               <div id="container0" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea0" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button0">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 9AM row ends here-->
 
           <!--********************************************************************-->
@@ -105,23 +104,21 @@
           <!--********************************************************************-->
 
           <div id="1" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>10AM</h6>
                </div>
-               <div id="container1" class="col-sm-7 activity-cont">
+               <div id="container1" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea1" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button1">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 10AM row ends here-->
 
           <!--********************************************************************-->
@@ -129,23 +126,21 @@
           <!--********************************************************************-->
 
           <div id="2" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>11AM</h6>
                </div>
-               <div id="container2" class="col-sm-7 activity-cont">
+               <div id="container2" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea2" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button2">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 11AM row ends here-->
 
           <!--********************************************************************-->
@@ -153,23 +148,21 @@
           <!--********************************************************************-->
 
           <div id="3" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>12PM</h6>
                </div>
-               <div id="container3" class="col-sm-7 activity-cont">
+               <div id="container3" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea3" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button3">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 12PM row ends here-->
 
           <!--******************************************************************-->
@@ -177,23 +170,21 @@
           <!--******************************************************************-->
 
           <div id="4" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>1PM</h6>
                </div>
-               <div id="container4" class="col-sm-7 activity-cont">
+               <div id="container4" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea4" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button4">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 1PM row ends here-->
 
           <!--******************************************************************-->
@@ -201,23 +192,21 @@
           <!--******************************************************************-->
 
           <div id="5" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>2PM</h6>
                </div>
-               <div id="container5" class="col-sm-7 activity-cont">
+               <div id="container5" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea5" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button5">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 2PM row ends here-->
 
 
@@ -226,23 +215,21 @@
           <!--******************************************************************-->
 
           <div id="6" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>3PM</h6>
                </div>
-               <div id="container6" class="col-sm-7 activity-cont">
+               <div id="container6" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea6" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0">
+               <div class="col-1 px-0 py-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button6">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 3PM row ends here-->
 
           <!--******************************************************************-->
@@ -250,23 +237,21 @@
           <!--******************************************************************-->
 
           <div id="7" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>4PM</h6>
                </div>
-               <div id="container7" class="col-sm-7 activity-cont">
+               <div id="container7" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea7" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0 mx-0 my-0">
+               <div class="col-1 px-0 py-0 mx-0 my-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button7">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 4PM row ends here-->
 
           <!--******************************************************************-->
@@ -274,23 +259,21 @@
           <!--******************************************************************-->
 
           <div id="8" class="row row-cont">
-               <div class="col"></div> <!--for formating purposes only-->
-               <div class="col-sm-2 text-center hour-cont">
+               <div class="col-2 text-center hour-cont">
                     <h6>5PM</h6>
                </div>
-               <div id="container8" class="col-sm-7 activity-cont">
+               <div id="container8" class="col-9 activity-cont">
                     <form>
                          <div class="form-group my-0">
                               <textarea class="form-control" id="textarea8" rows="1"></textarea>
                          </div>
                     </form>                    
                </div>
-               <div class="col-sm-1 px-0 py-0 mx-0 my-0">
+               <div class="col-1 px-0 py-0 mx-0 my-0">
                     <button type="button" class="btn btn-info btn-block btn-future" id="button8">
                          <i class="far fa-save"></i>
                     </button>
                </div>
-               <div class="col"></div> <!--for formating purposes only-->
           </div> <!-- 4PM row ends here-->
 
 

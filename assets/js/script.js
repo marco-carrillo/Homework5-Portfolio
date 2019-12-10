@@ -4,6 +4,8 @@
 
 function changes_day(){
     day_index=parseInt(event.currentTarget.id[event.currentTarget.id.length-1]);   // updates which day is loaded
+    console.log("current day",day_index)
+    console.log("today",today_index)
 
     scheduler_day=scheduler_data[day_index];                                       // loads saved data to current day data
 

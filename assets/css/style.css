@@ -5,6 +5,7 @@
 /**************************************************************/
 /* Contains the background for classes that won't be changing */
 /*************************************************************/
+
 body{
     background-image:url("../images/little_pluses.png");
 }
