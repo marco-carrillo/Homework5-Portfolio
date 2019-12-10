@@ -1,31 +1,20 @@
-//*******************************************************************/
-// When called, this functions sets up all functionality needed to  */
-// enter and edit the activity for the hour.                        */
-//*******************************************************************/
+//********************************************************************//
+//  Handles clicks.  Meaning, the user wanted to save that specific   //
+//  hour activity.  Only that row is saved, rather than the entire    //
+//  rows, since a button is specific to the hour slot assigned.       //
+//********************************************************************//
 
-function edit_activity(number){
+function saves_row(event){
 
-    button_clicked=event.currentTarget.id[event.currentTarget.id.length-1];  // Buttom clicked.  Button0=9AM, Button1=10AM......Button8=5PM
-    var form_object=$("<form>");                          // creating new form object
-    $("#container"+button_clicked).prepend(form_object);  // appending the form
+    // first, gets which button got clicked (last digit of the button id)
+    var button_clicked=event.currentTarget.id[event.currentTarget.id.length-1]
 
-    var new_text=$("<input>");                            // Within that form, we will add a text input field
-    new_text.attr("class","form-control");                // Setting class to form-control
+    // Now, it will retrieve the data, update the memory variable and write to local storage
+    scheduler_data[parseInt(button_clicked)]=$("#textarea"+button_clicked).val();
+    localStorage.setItem("scheduler_data",JSON.stringify(scheduler_data));
 
-    new_text.attr("value",$("#activity"+button_clicked).text());  // Setting the value of the input form to the text
-    $("#activity"+button_clicked).hide();               // hides the text so that a form can be inputed
-    form_object.append(new_text);                       // The text input takes the place of the description
-    event.preventDefault();
 
-    console.log(new_text.value);
-    // waits until the user presses enter.  Once it does, then updates the attribution
-    $("#activity"+button_clicked).text(new_text.value);
-
-    alert(new_text.value);
-    // <input id="activity8" class="form-control" type="text" placeholder="Readonly input here...">
-    // <h6 id="activity8" style="display: none;">Activity description goes here</h6>
-}
-
+}  // end of function saves_row
 
 //********************************************/
 // When called, returns military time hour   */
@@ -44,7 +33,7 @@ function get_military_hour() {
         if (hour===12) {return 0;}
         else {return hour};
     }
-}
+}  // end of function get_military_hour
 
 //**************************************************************************/
 // The following function handles the timer.  Overall responsibilities:    */
@@ -65,7 +54,7 @@ document.getElementById("TimeShown").textContent="Time -- "+moment().format('h:m
 
 //  get current time in military time (0 to 23 hours)
 
-var current_hour=get_military_hour()-8;
+var current_hour=get_military_hour()-6;
 
 //**********************************************************************/
 //  activity on the table is stored in a matrix of strings.
@@ -89,12 +78,12 @@ for(var i=0;i<9;i++){
         $(text_name).prop("disabled",false);                    // enables text input
         $(text_name).attr("class","form-control text-current");  // formatting text in the present
         $(button_name).prop("disabled",false)                    // enables button
-        $(button_name).attr("class","btn btn-block btn-danger btn-fmt")  // formatting button
+        $(button_name).attr("class","btn btn-block btn-danger btn-fmt btn-clickable")  // formatting button
     } else {  // This means the current slot (index+8) happens in the future.
         $(text_name).prop("disabled",false);                    // enables text input
-        $(text_name).attr("class","form-control text-present");  // formatting text in the present
+        $(text_name).attr("class","form-control text-future");  // formatting text in the future
         $(button_name).prop("disabled",false)                    // enables button
-        $(button_name).attr("class","btn btn-block btn-info btn-fmt")  // formatting button
+        $(button_name).attr("class","btn btn-block btn-info btn-fmt btn-clickable")  // formatting button
     }
 
     $(".btn").off("click")                             // eliminating any click handlers from all buttons
@@ -130,4 +119,23 @@ function set_initial_interval(){
 //****************************************************************************************** */
 
 handle_minute();                                            // Initial page loading
-var IntervalHandler=setInterval(set_initial_interval,1000); // Initial time interval, every second, until minute changes
+var scheduler_data=JSON.parse(localStorage.getItem("scheduler_data"));  // retrieves data from local storage
+
+//  If no data exists then it creates empty storage
+if (scheduler_data===null){
+    alert ("data is empty");
+    var scheduler_data=["0","1","2","3","4","5","6","7","8"];
+    localStorage.setItem("scheduler_data",JSON.stringify(scheduler_data));
+}
+
+// loads data to the screen
+
+for (var i=0;i<8;i++){
+    $("#textarea"+i).val(scheduler_data[i]);
+}
+
+// Initial time interval, every second, until minute changes
+var IntervalHandler=setInterval(set_initial_interval,1000); 
+
+//  Setting the on-click event so that when any clickable button is pressed, the function handles it
+$(".btn-clickable").on("click",saves_row);

@@ -2,17 +2,12 @@
 /* This file contains all of the css styling applied to different elements and classes  */
 /****************************************************************************************/
 
-
 /**************************************************************/
 /* Contains the background for classes that won't be changing */
 /*************************************************************/
-
-/* body{
+body{
     background-image:url("../images/little_pluses.png");
-} */
-
-
-body{background-color:turquoise;}
+}
 
 .activity-cont{
     padding-top:0px;
@@ -49,13 +44,8 @@ body{background-color:turquoise;}
 /***********************************************************/
 /* Formats elements whenever they are disabled (past hour  */
 /***********************************************************/
-
 .text-past{
     background-color:gray;
-}
-
-.frm-past {
-    background-color:red;
 }
 
 /*************************************************************/
@@ -70,15 +60,14 @@ body{background-color:turquoise;}
     background-color:red;
 }
 
-
-
 /*************************************************************/
 /* Formats elements whenever they are future (future hour    */
 /*************************************************************/
 
-
-
-.hr-future {
-    background-color:white;
+.text-future {
+    background-color:aqua;
 }
 
+.text-future:focus {
+    background-color:aqua;
+}
