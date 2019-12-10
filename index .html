@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <!--*************************************************************-->
     <!--  Displaying main page.  It has 10 rows as follows           -->
     <!--  First row:  The title of what is being done, and timing    -->
@@ -32,12 +31,50 @@
                </div> 
                <div class="col-sm-8 text-center">
                     <h3>Work day Scheduler</h3>
-                    <h6>A simple calendar app for scheduling your work day</h6>
+                    <h6>A simple calendar app for scheduling your work week</h6>
                     <h6 id="DisplayDate">Date here</h6>
                </div>
-               <div class="col-2"></div> <!-- for formatting purposes only-->
+               <div class="col-2">   <!--option to disable pop-ups/select day of the week-->
+                    <div class="form-check">
+                         <input class="form-check-input" type="checkbox" value="" id="confirm_msgs" checked>
+                         <label class="form-check-label" for="defaultCheck1">
+                            Allow messages     
+                         </label>
+                    </div> 
+               </div>
           </div> <!-- row 1 ends here-->
 
+          <!--********************************************************************-->
+          <!-- this row contains the days of the week and which one the user selects-->
+          <!-- Keep in mind, this is CURRENT WEEK, so if a user logs on Wednesday   -->
+          <!-- that user can only change forward, not backwards-->
+          <!--********************************************************************-->
+
+          <div class="row d-flex justify-content-center mb-2">
+               <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-info dow" id="day0">
+                      <input type="radio" name="options" id="daylabel0">Sunday
+                    </label>
+                    <label class="btn btn-info dow" id="day1">
+                      <input type="radio" name="options" id="daylabel1">Monday
+                    </label>
+                    <label class="btn btn-info dow" id="day2">
+                      <input type="radio" name="options" id="daylabel2">Tuesday
+                    </label>
+                    <label class="btn btn-info dow" id="day3">
+                       <input type="radio" name="options" id="daylabel3">Wednesday
+                    </label>
+                    <label class="btn btn-info dow" id="day4">
+                       <input type="radio" name="options" id="daylabel4">Thursday
+                    </label>
+                    <label class="btn btn-info dow" id="day5">
+                       <input type="radio" name="options" id="daylabel5">Friday
+                    </label>
+                       <label class="btn btn-info dow" id="day6">
+                    <input type="radio" name="options" id="daylabel6">Saturday
+                    </label>
+               </div>
+          </div>
 
           <!--********************************************************************-->
           <!-- 9:00 time slot formatting will start here                          -->
@@ -267,10 +304,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
-
-    <!--******************-->
-    <!-- CDNJS JQuery     -->
-    <!--******************-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     <script src="assets/js/script.js"></script>
 

@@ -1,3 +1,19 @@
+//************************************************************************//
+//  Handles when the dropdown is selected so that the day can be changed
+//************************************************************************//
+
+function changes_day(){
+    day_index=parseInt(event.currentTarget.id[event.currentTarget.id.length-1]);   // updates which day is loaded
+
+    scheduler_day=scheduler_data[day_index];                                       // loads saved data to current day data
+
+    for (var i=0;i<9;i++){                                                         // loads new data to the screen
+        $("#textarea"+i).val(scheduler_day[i]);
+    }
+    handle_minute()                                                                //  Calls to format screen
+
+}  // end of function changes_day
+
 //********************************************************************//
 //  Handles clicks.  Meaning, the user wanted to save that specific   //
 //  hour activity.  Only that row is saved, rather than the entire    //
@@ -6,13 +22,27 @@
 
 function saves_row(event){
 
-    // first, gets which button got clicked (last digit of the button id)
-    var button_clicked=event.currentTarget.id[event.currentTarget.id.length-1]
+    var button_clicked=event.currentTarget.id[event.currentTarget.id.length-1]      // which button was clicked?
+    scheduler_day[parseInt(button_clicked)]=$("#textarea"+button_clicked).val();    // updating the new activity data 
+    scheduler_data[day_index]=scheduler_day;                                        // Updating week data
+    localStorage.setItem("scheduler_data",JSON.stringify(scheduler_data));          // saving to local storage
 
-    // Now, it will retrieve the data, update the memory variable and write to local storage
-    scheduler_data[parseInt(button_clicked)]=$("#textarea"+button_clicked).val();
-    localStorage.setItem("scheduler_data",JSON.stringify(scheduler_data));
+    for (var i=0;i<9;i++){                                                           // refreshing entire screen page
+        $("#textarea"+i).val(scheduler_day[i]);
+    }
 
+    if($("#confirm_msgs").is(":checked")){                                           //  If user enabled, saved message displayed
+        $.confirm({                                                            
+            title: 'Data saved for '+time_slots[button_clicked],
+            content: "Your edits to the activity for this time slot have been saved!!!!",
+            type: 'green',
+            typeAnimated: true,
+            buttons: {
+                close: function () {
+                }
+            }
+        });
+    }
 
 }  // end of function saves_row
 
@@ -35,26 +65,25 @@ function get_military_hour() {
     }
 }  // end of function get_military_hour
 
-//**************************************************************************/
-// The following function handles the timer.  Overall responsibilities:    */
-// 1.  refreshes date and time every minute                                */
-// 2.  finds the current time, and based on it                            */
-//     2.a  Disables past time                                             */
-//     2.b  Formats in red current hour                                    */
-//     2.c  Enables future time                                            */
-//************************************************************************ */
-
+//***************************************************************************************/
+// The following function handles the timer.  Overall responsibilities:                 */
+// 1.  refreshes date and time every minute                                             */
+// 2.  finds the current time, and based on it                                          */
+//     2.a  Disables past time                                                          */
+//     2.b  Formats in red current hour                                                 */
+//     2.c  Enables future time                                                         */
+// DOESNOT load and/or refreshes data.  This is responsibility of the calling function  */
+//***************************************************************************************/
 
 function handle_minute() {
 
     // updating time and date --Just in case date is changed, it refreshes both date and time, not just time
 
-document.getElementById("DisplayDate").textContent=moment().format('MMMM Do YYYY');
-document.getElementById("TimeShown").textContent="Time -- "+moment().format('h:mm a');
+$("#TimeShown").text("Time -- "+moment().format('h:mm a'));         // Shows time
 
 //  get current time in military time (0 to 23 hours)
 
-var current_hour=get_military_hour()-6;
+var current_hour=get_military_hour();
 
 //**********************************************************************/
 //  activity on the table is stored in a matrix of strings.
@@ -69,27 +98,35 @@ for(var i=0;i<9;i++){
     var text_name="#textarea"+i.toString();    // Id of the text area
     var button_name="#button"+i.toString();    // ID of the button
 
-    if(current_hour-i-9>0) {   // That means the current slot is in the past, disable text and button
-        $(text_name).prop("disabled",true);                     // disables text input
-        $(text_name).attr("class","form-control text-past");    // formatting text in the past
-        $(button_name).prop("disabled",true)                    // disables button
+    if(day_index<today_index){            // Day selected by user is in the past.  All time slots disabled
+        $(text_name).prop("disabled",true);                                  // disables text input
+        $(text_name).attr("class","form-control text-past");                 // formatting text in the past
+        $(button_name).prop("disabled",true)                                 // disables button
         $(button_name).attr("class","btn btn-block btn-secondary btn-fmt")   // formatting button
-    } else if(current_hour-i-9===0){  // This means the current slot is the current hour
-        $(text_name).prop("disabled",false);                    // enables text input
-        $(text_name).attr("class","form-control text-current");  // formatting text in the present
-        $(button_name).prop("disabled",false)                    // enables button
-        $(button_name).attr("class","btn btn-block btn-danger btn-fmt btn-clickable")  // formatting button
-    } else {  // This means the current slot (index+8) happens in the future.
-        $(text_name).prop("disabled",false);                    // enables text input
-        $(text_name).attr("class","form-control text-future");  // formatting text in the future
-        $(button_name).prop("disabled",false)                    // enables button
+    }  else if (day_index>today_index){  // Day selected by user is in the future.  All time slots enabled
+        $(text_name).prop("disabled",false);                                 // enables text input
+        $(text_name).attr("class","form-control text-future");               // formatting text in the future
+        $(button_name).prop("disabled",false)                                // enables button
         $(button_name).attr("class","btn btn-block btn-info btn-fmt btn-clickable")  // formatting button
-    }
-
-    $(".btn").off("click")                             // eliminating any click handlers from all buttons
-     // Adding click events for present and future buttons
-
-}
+    }  else {                            // Day selected by user is today.  Need to evaluate each time slot based on time
+            if(current_hour-i-9>0) {    // That means the current slot is in the past, disable text and button
+                $(text_name).prop("disabled",true);                                  // disables text input
+                $(text_name).attr("class","form-control text-past");                 // formatting text in the past
+                $(button_name).prop("disabled",true)                                 // disables button
+                $(button_name).attr("class","btn btn-block btn-secondary btn-fmt")   // formatting button
+            } else if(current_hour-i-9===0){  // This means the current slot is the current hour
+                $(text_name).prop("disabled",false);                                 // enables text input
+                $(text_name).attr("class","form-control text-current");              // formatting text in the present
+                $(button_name).prop("disabled",false)                                // enables button
+                $(button_name).attr("class","btn btn-block btn-danger btn-fmt btn-clickable")  // formatting button
+            } else {  // This means the current slot (index+8) happens in the future.
+                $(text_name).prop("disabled",false);                                 // enables text input
+                $(text_name).attr("class","form-control text-future");               // formatting text in the future
+                $(button_name).prop("disabled",false)                                // enables button
+                $(button_name).attr("class","btn btn-block btn-info btn-fmt btn-clickable")  // formatting button
+            }
+    }  // end of else - in case user selected today
+}  // End for loop
 
 } //  Ends function handle_minute()
 
@@ -113,29 +150,34 @@ function set_initial_interval(){
     }
 }    //  end of function set_initial_interval 
 
-//****************************************************************************************** */
+// ****************************************************************************************** */
 //  Main program functionality.  The following area sets up the events so that it can
 //  properly function.  
-//****************************************************************************************** */
+// ****************************************************************************************** */
 
-handle_minute();                                            // Initial page loading
-var scheduler_data=JSON.parse(localStorage.getItem("scheduler_data"));  // retrieves data from local storage
 
-//  If no data exists then it creates empty storage
-if (scheduler_data===null){
-    alert ("data is empty");
-    var scheduler_data=["0","1","2","3","4","5","6","7","8"];
-    localStorage.setItem("scheduler_data",JSON.stringify(scheduler_data));
+var time_slots=["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"];           // time slots available
+var DoW=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];    // Days of week for dropdown
+var today_index=DoW.indexOf(moment().format('dddd'));                                // Which day is today?  Doesn't change
+var day_index=today_index;                                                             // current day displayed.  user can change it
+$("#daylabel"+day_index).prop("checked",true);                                       // shows which day of week is today
+handle_minute();                                                                     // Initial page loading
+$("#DisplayDate").text(moment().format('dddd MMMM Do YYYY'));                        // Shows date
+
+
+var scheduler_data=JSON.parse(localStorage.getItem("scheduler_data"));      //  retrieves data from local storage
+if (scheduler_data===null){                                                 //  If no data exists then it creates empty storage
+    var scheduler_day=["","","","","","","","",""];                         //  scheduler_day=data for the current day selected 
+    var scheduler_data= new Array(7);                                       //  scheduler_data=data for the entire week (7 days)
+    for(var i=0;i<7;i++){ scheduler_data[i]=new Array(9)}
+    localStorage.setItem("scheduler_data",JSON.stringify(scheduler_data));  // stores empty array to local storage
 }
 
-// loads data to the screen
-
-for (var i=0;i<8;i++){
-    $("#textarea"+i).val(scheduler_data[i]);
+scheduler_day=scheduler_data[day_index];                                    // Retrieving data for today
+for (var i=0;i<9;i++){                                                      // loads data to the screen
+    $("#textarea"+i).val(scheduler_day[i]);
 }
 
-// Initial time interval, every second, until minute changes
-var IntervalHandler=setInterval(set_initial_interval,1000); 
-
-//  Setting the on-click event so that when any clickable button is pressed, the function handles it
-$(".btn-clickable").on("click",saves_row);
+var IntervalHandler=setInterval(set_initial_interval,1000);                 // Initial time interval, every second, until minute changes
+$(".btn-clickable").on("click",saves_row);                                  //  Setting the on-click event so that when any clickable button is pressed, the function handles it
+$('.dow').on('click',changes_day);                                          // Setting the event for day drop-down
