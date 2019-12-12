@@ -4,8 +4,6 @@
 
 function changes_day(){
     day_index=parseInt(event.currentTarget.id[event.currentTarget.id.length-1]);   // updates which day is loaded
-    console.log("current day",day_index)
-    console.log("today",today_index)
 
     scheduler_day=scheduler_data[day_index];                                       // loads saved data to current day data
 
@@ -13,6 +11,7 @@ function changes_day(){
         $("#textarea"+i).val(scheduler_day[i]);
     }
     handle_minute()                                                                //  Calls to format screen
+
 
 }  // end of function changes_day
 
@@ -181,5 +180,5 @@ for (var i=0;i<9;i++){                                                      // l
 }
 
 var IntervalHandler=setInterval(set_initial_interval,1000);                 // Initial time interval, every second, until minute changes
-$(".btn-clickable").on("click",saves_row);                                  //  Setting the on-click event so that when any clickable button is pressed, the function handles it
+$(document).on("click",".btn-clickable",saves_row)
 $('.dow').on('click',changes_day);                                          // Setting the event for day drop-down
