@@ -1,6 +1,6 @@
 ﻿# Purpose of the application
 
-This application allows users to plan a full week of their calendars.  The user can select any day of the week that they want to work with.  Users can see all of the days from Sunday through Saturdaycan see any day of this week (from Sunday through Saturday) of the current week.
+This application allows users to plan a full week of their calendars.  The user can select any day of the week that they want to work with, and add description of what activities will be performed at each hour from 9AM through 5PM.
 
 ## Functionality
 
@@ -12,9 +12,9 @@ When working with the current day, the user will be able to edit any activity th
 
 When editing an activity, that activity is updated to temporary memory.  To make it permanent, the user needs to click the "save" button which is located next to each activity slot.  If the user changes the text of any time slot, but doesn't save it, the contents will be lost if the user were to exit the browser.
 
-IMPORTANT:  If a user edits the context of a time slot, say 10AM, then moves to edit another time slot, say 11AM and saves 11AM, the changes to the 11AM time slot are updated, but the changes to the 10AM time slot are reverted back.  This is to avoid the user into editing all of the time slots, and then saving the last edited time slot and believe they have saved all changes made.  Remember, each save button is specific to the time slot allowed.
+IMPORTANT:  If a user edits the content of a time slot, say 10AM, then moves to edit another time slot without first saving the 10AM time slot, say 11AM and then chooses to save 11AM, the changes to the 11AM time slot are updated to permanent memory, but the changes to the 10AM time slot are reverted back.  This inmediate reversion to the pre-editing value is done to avoid the user into editing multiple time slots, and then saving the last edited time slot with the belief all changes have been saved.  
 
-Once the user has edited the activity description and clicked on the corresponding save button, either one of two things will happen:  a) the system will isssue a pop-up message telling the user changes have been saved, or b) Nothing will happen other than saving of the data.  These actions will depend on whether the "Allow messages" option is checked (default) or not.
+Once the user has edited the activity description and clicked on the corresponding save button, the system will issue a pop-up message indicating that changes to the specific time slot have been made.  That pop-up window can be disabled by clearing the "Allow messages" check-box.
 
 ##  Data shown to the user
 
